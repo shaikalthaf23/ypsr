@@ -1,0 +1,74 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YPS — Admin Dashboard</title><link rel="stylesheet" href="style.css"></head><body>
+<div class="header"><div><div class="title">AU YPS — Admin</div><div class="sub">Assign Trustees • Monitor Queue</div></div><div class="sub">Admin Panel</div></div>
+<main class="container">
+  <div class="section-head"><h3>Pending Questionnaires</h3><div class="small">Auto-assign rotates to available trustees</div></div>
+  <div class="card-list" id="pendingList">
+    <!-- cards injected by script -->
+  </div>
+
+  <div style="height:14px"></div>
+  <div class="section-head"><h3>Trustees</h3><div class="small">Status</div></div>
+  <div class="card-list" id="trusteeList"></div>
+
+  <div style="height:16px"></div>
+  <div class="row"><button class="btn" onclick="autoAssign()">Run Auto-Assign</button><button class="btn ghost" onclick="location.reload()">Refresh</button></div>
+</main>
+
+<script>
+// sample data (in real app this comes from backend)
+let trustees = [
+  {id:1, name:'A. Rahman', free:true},
+  {id:2, name:'S. Fatima', free:true},
+  {id:3, name:'M. Imran', free:true},
+];
+let pending = [
+  {id:'Q-1023', name:'Karthik', school:'Govt HS', amount:8000},
+  {id:'Q-1024', name:'Nisha', school:'St Mary\'s', amount:12000},
+  {id:'Q-1025', name:'Ayesha', school:'City College', amount:6000},
+];
+
+function render(){
+  const tlist = document.getElementById('trusteeList');
+  const plist = document.getElementById('pendingList');
+  tlist.innerHTML=''; plist.innerHTML='';
+  trustees.forEach(t=>{
+    const div=document.createElement('div'); div.className='card';
+    div.innerHTML = `<div><div class="kv"><strong>${t.name}</strong></div><div class="small">${t.free? 'Available':'Busy'}</div></div><div class="badge">${t.free? 'Free':'Busy'}</div>`;
+    tlist.appendChild(div);
+  });
+  pending.forEach(p=>{
+    const div=document.createElement('div'); div.className='card';
+    div.innerHTML = `<div><div class="kv"><strong>${p.id} — ${p.name}</strong></div><div class="small">${p.school} • ₹${p.amount}</div></div><div><button class="btn ghost" onclick="assign('${p.id}')">Assign</button></div>`;
+    plist.appendChild(div);
+  });
+}
+
+function assign(pid){
+  // find first free trustee and assign
+  const free = trustees.find(t=>t.free);
+  if(!free){ alert('No free trustee — all busy.'); return; }
+  const idx = pending.findIndex(p=>p.id===pid);
+  if(idx===-1){ alert('Task not found'); return; }
+  const task = pending.splice(idx,1)[0];
+  // mark trustee busy
+  free.free = false;
+  // simulate assignment record (in real app we'd call backend)
+  alert('Assigned ' + task.id + ' to ' + free.name);
+  render();
+}
+
+function autoAssign(){
+  // rotate through pending and assign to free trustees in loop
+  for(let i=0;i<pending.length; ){
+    const free = trustees.find(t=>t.free);
+    if(!free) break;
+    const task = pending.shift();
+    free.free = false;
+    console.log('Auto assign', task.id, '->', free.name);
+  }
+  render();
+}
+
+render();
+</script></body></html>

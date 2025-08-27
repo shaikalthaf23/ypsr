@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YPS 2025 — Questionnaire</title><link rel="stylesheet" href="style.css"></head><body>
+<div class="header"><div><div class="title">AU Young Professionals — YPS 2025</div><div class="sub">Beneficiary Questionnaire</div></div><div class="sub">Trust Workflow • Beneficiary Portal</div></div>
+<main class="container">
+  <div class="section-head"><h3>Level 1 — Basic Details</h3><div class="small">Step 1 of 4</div></div>
+  <p class="h-intro">Fill the questionnaire. Trustee will verify after admin assigns.</p>
+  <form id="qform">
+    <div class="grid">
+      <div>
+        <label>Student Name</label><input class="input" name="name" required placeholder="Full name (capital letters)">
+        <label>Class / Degree with Major</label><input class="input" name="class" placeholder="E.g., B.Sc Computer Science">
+        <label>School / College</label><input class="input" name="school">
+        <label>Medium</label><input class="input" name="medium">
+        <label>Referred By & Contact</label><input class="input" name="referrer">
+        <label>How did you hear about this scheme?</label><textarea name="discover" class="input"></textarea>
+      </div>
+      <div>
+        <label>Source of Family Income</label><textarea class="input" name="income_source"></textarea>
+        <label>Father's Occupation</label><input class="input" name="father_job">
+        <label>Mother's Occupation</label><input class="input" name="mother_job">
+        <label>How were fees paid last year?</label><textarea class="input" name="fees_last"></textarea>
+        <label>Why can't they pay this year?</label><textarea class="input" name="why_support"></textarea>
+      </div>
+    </div>
+
+    <div style="height:14px"></div>
+    <div class="section-head"><h3>Level 2 — Financials & Skills</h3><div class="small">Step 2 of 4</div></div>
+    <div class="grid">
+      <div>
+        <label>Academic Performance / Skills</label><textarea class="input" name="skills"></textarea>
+        <label>Current Year Fees (INR)</label><input class="input" type="number" name="fees">
+        <label>Amount Requested (INR)</label><input class="input" type="number" name="request_amount">
+      </div>
+      <div>
+        <label>If > 10000, Why not change to lower-cost institute?</label><textarea class="input" name="why_cost"></textarea>
+        <label>How will you manage the remaining balance?</label><textarea class="input" name="balance_plan"></textarea>
+        <label>Any interesting findings about beneficiary</label><textarea class="input" name="notes"></textarea>
+      </div>
+    </div>
+
+    <div style="height:16px"></div>
+    <div class="section-head"><h3>Level 3 — Documents</h3><div class="small">Upload soft copies</div></div>
+    <div class="grid">
+      <div>
+        <label>Aadhaar (student/parent)</label><input class="input" type="file" name="aadhaar">
+        <label>Marksheet / Report Card (Xerox)</label><input class="input" type="file" name="marksheet">
+        <label>Bank Passbook (First page)</label><input class="input" type="file" name="bank">
+      </div>
+      <div>
+        <label>Bonafide / School Identity Card</label><input class="input" type="file" name="bonafide">
+        <label>Fee Details from Institute (document)</label><input class="input" type="file" name="fee_doc">
+        <label>Photo (passport size)</label><input class="input" type="file" name="photo">
+      </div>
+    </div>
+
+    <div style="height:18px"></div>
+    <div class="row">
+      <button class="btn" type="button" id="saveBtn">Save & Continue</button>
+      <button class="btn ghost" type="reset">Reset</button>
+    </div>
+
+    <div class="footer"><div>Need help? Contact: 84283 66631</div><div>AU YPCT • Thanjavur</div></div>
+  </form>
+</main>
+
+<script>
+// Minimal front-end simulation: on Save -> redirect to waiting page
+document.getElementById('saveBtn').addEventListener('click', function(){
+  // here you would send to backend via fetch()
+  window.location.href = 'waiting.html';
+});
+</script>
+</body></html>

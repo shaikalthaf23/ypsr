@@ -1,0 +1,67 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YPS — Application Form</title><link rel="stylesheet" href="style.css"></head><body>
+<div class="header"><div><div class="title">AU Young Professionals — YPS 2025</div><div class="sub">Application Form (Accepted)</div></div><div class="sub">Complete & Sign</div></div>
+<main class="container">
+  <div class="section-head"><h3>Personal Details</h3><div class="small">Application Date: <strong id="appDate">--</strong></div></div>
+  <p class="h-intro">This form mirrors the printed application. Fill carefully and upload scans where required.</p>
+  <form>
+    <div class="grid">
+      <div>
+        <label>Name of the Applicant</label><input class="input" name="app_name" placeholder="Full name">
+        <label>Birth Date</label><input class="input" type="date" name="birth">
+        <label>Gender</label>
+        <select class="input" name="gender"><option value="">Select</option><option>Male</option><option>Female</option></select>
+        <label>I am (Student / Working / Other)</label><input class="input" name="status" placeholder="Student / Working Profession">
+        <label>If Other, detail</label><input class="input" name="other_detail">
+        <label>Contact Number</label><input class="input" name="contact">
+        <label>Email ID</label><input class="input" type="email" name="email">
+      </div>
+      <div>
+        <label>Aadhaar Number</label><input class="input" name="aadhaar">
+        <label>Affix Photo</label><div class="file-row"><div class="file-preview">No file chosen</div><input class="input" type="file" name="photo"></div>
+        <label>Educational Qualification (School / College)</label><input class="input" name="edu_inst">
+        <label>Class / Degree & Branch</label><input class="input" name="edu_class">
+        <label>Marks (%)</label><input class="input" name="marks">
+      </div>
+    </div>
+
+    <div style="height:12px"></div>
+    <div class="section-head"><h3>Family Details</h3><div class="small">Keep bank/passbook ready</div></div>
+    <div class="grid">
+      <div>
+        <label>Father / Husband Name</label><input class="input" name="father">
+        <label>Mother Name</label><input class="input" name="mother">
+        <label>Father / Mother / Husband Aadhaar</label><input class="input" name="parent_aadhaar">
+      </div>
+      <div>
+        <label>Occupation (Father)</label><input class="input" name="father_job">
+        <label>Occupation (Mother)</label><input class="input" name="mother_job">
+        <label>Family Income (INR)</label><input class="input" name="family_income">
+        <label>Address for Communication</label><textarea class="input" name="address"></textarea>
+      </div>
+    </div>
+
+    <div style="height:12px"></div>
+    <div class="section-head"><h3>Request & Documents</h3><div class="small">Select category & upload docs</div></div>
+    <label>Request Category</label>
+    <select class="input" name="category">
+      <option>Educational Scholarship</option><option>Women Empowerment</option><option>Medical Aid</option><option>Entrepreneur</option>
+    </select>
+    <label>Reason / Request (brief)</label><textarea class="input" name="reason"></textarea>
+    <label>Amount Requested (INR)</label><input class="input" type="number" name="amount">
+    <div style="height:10px"></div>
+    <label>Attach Required Documents (Aadhaar / Bank Passbook / Marksheet / Fee Receipt)</label>
+    <div class="grid">
+      <div><input class="input" type="file" name="aadhaar_file"></div>
+      <div><input class="input" type="file" name="bank_file"></div>
+    </div>
+
+    <div style="height:14px"></div>
+    <div class="row"><button class="btn" type="submit">Submit Application</button><button class="btn ghost" type="button" onclick="window.print()">Print (PDF)</button></div>
+
+    <div class="footer"><div>Declaration: I declare the information supplied is true.</div><div>Office use will update status</div></div>
+  </form>
+</main>
+
+<script>document.getElementById('appDate').innerText = new Date().toLocaleDateString();</script>
+</body></html>

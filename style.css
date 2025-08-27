@@ -1,0 +1,107 @@
+/* style.css - Shared stylesheet for YPS 2025 UI */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+:root{
+  --brand-1: #0f766e; /* teal-green */
+  --brand-2: #22c1c3; /* aqua */
+  --accent: #107c63;
+  --muted: #6b7280;
+  --card-bg: #ffffff;
+  --surface: #f7fbfb;
+  --radius: 12px;
+  --shadow: 0 6px 22px rgba(2,6,23,0.08);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, var(--surface), #eefaf9 60%);
+  color:#0f1724;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  padding:28px 20px;
+}
+
+/* Header */
+.header{
+  max-width:1100px;
+  margin:0 auto 20px auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:18px 22px;
+  border-radius:14px;
+  background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+  color:white;
+  box-shadow:var(--shadow);
+}
+.header .title{font-weight:700; font-size:1.15rem; letter-spacing:0.2px}
+.header .sub{font-size:0.85rem; opacity:0.95}
+
+/* Container */
+.container{
+  max-width:1100px;
+  margin:18px auto;
+  background:var(--card-bg);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:26px;
+  overflow:hidden;
+}
+
+/* Form layout */
+.grid{display:grid; grid-template-columns: 1fr 1fr; gap:18px}
+@media (max-width:800px){ .grid{grid-template-columns:1fr} }
+
+label{display:block; font-size:0.88rem; margin-bottom:6px; color:var(--muted); font-weight:600}
+.input, textarea, select{
+  width:100%;
+  padding:10px 12px;
+  border:1px solid #e6eef0;
+  border-radius:10px;
+  background:transparent;
+  font-size:0.95rem;
+  color:var(--brand-1);
+  outline:none;
+}
+textarea{min-height:100px; resize:vertical; padding-top:12px}
+.small{font-size:0.82rem; color:var(--muted)}
+
+/* Buttons */
+.row{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+.btn{
+  background:linear-gradient(180deg,var(--brand-2),var(--brand-1));
+  color:white; padding:11px 16px; border:none; border-radius:10px; cursor:pointer;
+  font-weight:600; box-shadow:0 6px 18px rgba(15,118,110,0.14);
+}
+.btn.ghost{background:transparent; color:var(--brand-1); border:1px solid #dff3f2}
+
+/* Status card */
+.status-card{padding:22px; border-radius:12px; background:linear-gradient(180deg,#f1fffe,#ffffff); border:1px solid #e6f7f6; text-align:center}
+.status-title{font-weight:700; color:var(--brand-1); margin-bottom:6px}
+.status-sub{color:var(--muted)}
+
+/* Form section heading */
+.section-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px}
+.section-head h3{margin:0; color:var(--brand-1); font-size:1.05rem}
+
+/* Small helper */
+.h-intro{color:var(--muted); font-size:0.92rem; margin-bottom:10px}
+
+/* File preview */
+.file-row{display:flex; gap:10px; align-items:center}
+.file-preview{padding:8px 12px; border-radius:8px; background:#f3fdfc; border:1px dashed #d6f3f1; color:var(--brand-1)}
+
+/* Footer */
+.footer{margin-top:18px; display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:0.9rem}
+
+/* Admin/Trustee lists */
+.card-list{display:grid; gap:12px}
+.card{padding:14px; border-radius:10px; background:white; border:1px solid #f0faf9; display:flex; justify-content:space-between; align-items:center}
+.badge{background:linear-gradient(90deg,#e6fffb,#e0fff6); color:var(--brand-1); padding:6px 10px; border-radius:999px; font-weight:700; font-size:0.85rem}
+
+/* small helpers */
+.kv{font-size:0.95rem; color:#0f1724}
+.center{display:flex; align-items:center; justify-content:center}
